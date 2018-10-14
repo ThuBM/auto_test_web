@@ -11,12 +11,15 @@ gem "pg", "0.18.0"
 gem "puma"
 gem "coffee-rails"
 gem "jquery-rails"
+gem "bootstrap-sass"
+gem "autoprefixer-rails"
 gem "sass-rails"
 gem "jbuilder"
 gem "slim-rails"
 gem "paranoia"
 gem "uglifier"
 gem "turbolinks", "~> 5"
+gem "sass-rails"
 
 group :development, :test do
   # Call "byebug" anywhere in the code to stop execution and get a debugger console
