@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_061711) do
+ActiveRecord::Schema.define(version: 2018_10_14_062031) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -57,6 +57,19 @@ ActiveRecord::Schema.define(version: 2018_10_14_061711) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "test_action_results", force: :cascade do |t|
+    t.bigint "scenario_id"
+    t.bigint "scenario_action_id"
+    t.bigint "test_report_id"
+    t.text "message"
+    t.integer "result"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["scenario_action_id"], name: "index_test_action_results_on_scenario_action_id"
+    t.index ["scenario_id"], name: "index_test_action_results_on_scenario_id"
+    t.index ["test_report_id"], name: "index_test_action_results_on_test_report_id"
+  end
+
   create_table "test_reports", force: :cascade do |t|
     t.bigint "scenario_id"
     t.datetime "start_time"
@@ -70,5 +83,8 @@ ActiveRecord::Schema.define(version: 2018_10_14_061711) do
   add_foreign_key "actions", "group_actions"
   add_foreign_key "scenario_actions", "actions"
   add_foreign_key "scenario_actions", "scenarios"
+  add_foreign_key "test_action_results", "scenario_actions"
+  add_foreign_key "test_action_results", "scenarios"
+  add_foreign_key "test_action_results", "test_reports"
   add_foreign_key "test_reports", "scenarios"
 end
