@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_034339) do
+ActiveRecord::Schema.define(version: 2018_10_14_041056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "actions", force: :cascade do |t|
+    t.string "name"
+    t.bigint "element_id"
+    t.bigint "group_action_id"
+    t.integer "position"
+    t.integer "action_type"
+    t.text "action_value"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["element_id"], name: "index_actions_on_element_id"
+    t.index ["group_action_id"], name: "index_actions_on_group_action_id"
+  end
 
   create_table "elements", force: :cascade do |t|
     t.string "name"
@@ -29,10 +42,23 @@ ActiveRecord::Schema.define(version: 2018_10_14_034339) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "scenario_actions", force: :cascade do |t|
+    t.bigint "scenario_id"
+    t.bigint "action_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["action_id"], name: "index_scenario_actions_on_action_id"
+    t.index ["scenario_id"], name: "index_scenario_actions_on_scenario_id"
+  end
+
   create_table "scenarios", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "actions", "elements"
+  add_foreign_key "actions", "group_actions"
+  add_foreign_key "scenario_actions", "actions"
+  add_foreign_key "scenario_actions", "scenarios"
 end
