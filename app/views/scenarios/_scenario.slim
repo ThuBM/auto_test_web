@@ -2,4 +2,4 @@ tr
   td = scenario.name
   td = scenario.created_at.to_s
   td = link_to "Edit"
-  td = link_to "Delete"
+  td = link_to "Delete", scenario, method: :delete, data: {confirm: "You sure?"}
