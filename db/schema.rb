@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_14_062031) do
+ActiveRecord::Schema.define(version: 2018_10_14_062806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,11 +19,11 @@ ActiveRecord::Schema.define(version: 2018_10_14_062031) do
     t.string "name"
     t.bigint "element_id"
     t.bigint "group_action_id"
-    t.integer "position"
-    t.integer "action_type"
-    t.text "action_value"
+    t.integer "kind"
+    t.text "value"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "type"
     t.index ["element_id"], name: "index_actions_on_element_id"
     t.index ["group_action_id"], name: "index_actions_on_group_action_id"
   end
@@ -47,6 +47,7 @@ ActiveRecord::Schema.define(version: 2018_10_14_062031) do
     t.bigint "action_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "position"
     t.index ["action_id"], name: "index_scenario_actions_on_action_id"
     t.index ["scenario_id"], name: "index_scenario_actions_on_scenario_id"
   end
