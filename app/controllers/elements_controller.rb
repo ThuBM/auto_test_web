@@ -22,6 +22,11 @@ class ElementsController < ApplicationController
     redirect_to edit_element_path(@element)
   end
 
+  def destroy
+    Element.find(params[:id]).destroy!
+    redirect_to elements_path
+  end
+
   private
   def element_params
     params.require(:element).permit(:name, :selector_type, :selector_value)

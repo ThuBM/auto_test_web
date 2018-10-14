@@ -3,4 +3,4 @@ tr
   td = element.selector_type
   td = element.selector_value
   td = link_to "Edit", edit_element_path(element)
-  td = "Delete"
+  td = link_to "Delete", element, method: :delete, data: {confirm: "You sure?"}
