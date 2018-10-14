@@ -6,25 +6,21 @@ git_source(:github) do |repo_name|
 end
 
 
-gem "rails", "4.2.7.1"
-gem "pg", "0.17.1"
-gem "sass-rails", "5.0.6"
-gem "bootstrap-sass", "3.3.7"
-gem "uglifier", "3.0.4"
-gem "coffee-rails", "4.1.1"
-gem "jquery-rails", "4.2.2"
-gem "jbuilder", "2.6.1"
-gem "slim-rails", "3.1.1"
-gem "paranoia", "2.2.0"
-gem "searchkick", "2.5.0"
-gem "seed-fu", "2.3.6"
-gem "database_cleaner", "1.5.3"
-gem "dkim", "1.0.0"
-gem "amazon_pay", "2.0.0"
-gem "enum_help", "0.0.17"
+gem "rails", "> 5.0.7"
+gem "pg", "0.18.0"
+gem "puma"
+gem "coffee-rails"
+gem "jquery-rails"
+gem "sass-rails"
+gem "jbuilder"
+gem "slim-rails"
+gem "paranoia"
+gem "uglifier"
+gem "turbolinks", "~> 5"
 
 group :development, :test do
-  gem "pry", platform: :mri
+  # Call "byebug" anywhere in the code to stop execution and get a debugger console
+  gem "pry"
 end
 
 group :development do
