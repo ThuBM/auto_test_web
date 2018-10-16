@@ -1,0 +1,10 @@
+= form_for @scenario do |f|
+  h3 = "Basic information"
+  div.form-group
+    = f.label "Name"
+    = f.text_field :name, id: "scenario-name", class: "form-control"
+    
+  h3 = "Action informations"
+  div = link_to "Add new field"
+
+  = f.submit "Submit", class: "btn btn-primary"
