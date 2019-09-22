@@ -1,0 +1,6 @@
+tr
+  td = element.name
+  td = element.selector_type
+  td = element.selector_value
+  td = link_to "Edit", edit_admin_element_path(element)
+  td = link_to "Delete", admin_element_path(element), method: :delete, data: {confirm: "You sure?"}

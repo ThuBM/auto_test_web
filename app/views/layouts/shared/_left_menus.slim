@@ -1,5 +1,9 @@
-div.sidebar-header
-  h3 = "auto test web"
-  
-  ul.list-unstyled.components
-    li = link_to "HTML element managemenents", elements_path
+div.bg-light.border-right.col-md-3#sidebar-wrapper
+  div.sidebar-heading.col-md-12 = "Automation test"
+  div.list-group.list-group-flush.col-md-12
+    = link_to "Elements", "#",
+      class: "list-group-item list-group-item-action bg-light"
+    = link_to "Scenarios", "#",
+      class: "list-group-item list-group-item-action bg-light"
+    = link_to "Test results", "#",
+      class: "list-group-item list-group-item-action bg-light"
