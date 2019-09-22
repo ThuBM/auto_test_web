@@ -10,7 +10,8 @@ html lang==I18n.locale
 
     = csrf_meta_tags
 
-  body.top-navigation.white-bg
-    div.wrapper
-      nav#sidebar = render "layouts/shared/left_menus"
-      div#content = yield
+  body
+    div.d-flex#wrapper
+      = render "layouts/shared/left_menus"
+      div.col-md-9#page-content-wrapper
+        div.container-fluid = yield

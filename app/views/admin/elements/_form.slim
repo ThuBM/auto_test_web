@@ -1,0 +1,17 @@
+= form_for [:admin, @element], html: {class: "form-horizontal col-md-5"} do |f|
+  div.form-group
+    = f.label "Name", for: "element-name", class: "control-label col-md-3"
+    div.col-md-9
+      = f.text_field :name, id: "element-name", class: "form-control"
+  div.form-group
+    = f.label "Selector type", for: "element-selector-type", class: "control-label col-md-3"
+    div.col-md-9
+      = f.select :selector_type, Element.selector_types.map{|k, _| [k, k]}.to_h,
+        {}, {id: "element-selector-type", class: "form-control"}
+  div.form-group
+    = f.label "Selector value", for: "element-selector-value", class: "control-label col-md-3"
+    div.col-md-9
+      = f.text_field :selector_value, id: "element-selector-value",
+        class: "form-control"
+
+  = f.submit "Submit", class: "btn btn-primary col-md-12"
