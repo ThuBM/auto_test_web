@@ -1,5 +1,5 @@
 module Admin
-  class ElementsController < ApplicationController
+  class ElementsController < Admin::BaseController
     def index
       @elements = Element.all
     end
